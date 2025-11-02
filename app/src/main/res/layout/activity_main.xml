@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Калькулятор електричних навантажень"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_pn_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Номінальна потужність ЕП Pn (кВт)"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:errorEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_pn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_kv_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Коефіцієнт використання (Kv)"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_kv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_tgphi_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Коефіцієнт реактивної потужності (tg(φ))"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_tgphi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_calculate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Розрахувати навантаження"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="--- Розрахункові струми окремих ЕП ---"
+            android:layout_marginTop="8dp"/>
+
+        <TextView android:id="@+id/text_ip_shlif" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Ip (Шліфувальний): "/>
+        <TextView android:id="@+id/text_ip_poli" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Ip (Полірувальний): "/>
+        <TextView android:id="@+id/text_ip_tsirkyl" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Ip (Циркулярна пила): "/>
+
+        <View
+            android:layout_width="match_parent" android:layout_height="1dp"
+            android:background="@android:color/darker_gray" android:layout_marginVertical="10dp"/>
+
+        <TextView
+            android:id="@+id/text_results_shrif"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="--- Результати ШР1 ---"/>
+
+        <TextView android:id="@+id/text_kv_shrif" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Груповий Kv: "/>
+        <TextView android:id="@+id/text_ne_shrif" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Ефективна кількість ЕП (Ne): "/>
+
+        <TextView android:id="@+id/text_pp_shrif" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Pp (Активна потужність): "/>
+        <TextView android:id="@+id/text_qp_shrif" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Qp (Реактивне навантаження): "/>
+        <TextView android:id="@+id/text_sp_shrif" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Sp (Повна потужність): "/>
+        <TextView android:id="@+id/text_ip_shrif" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Ip (Груповий струм): "/>
+
+        <View
+            android:layout_width="match_parent" android:layout_height="1dp"
+            android:background="@android:color/darker_gray" android:layout_marginVertical="10dp"/>
+
+        <TextView
+            android:id="@+id/text_results_tseh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="--- Результати Цеху ---"/>
+
+        <TextView android:id="@+id/text_kv_tseh" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Груповий Kv цеху: "/>
+        <TextView android:id="@+id/text_ne_tseh" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Ефективна кількість ЕП цеху (Ne): "/>
+
+        <TextView android:id="@+id/text_pp_tseh" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Pp (Активна потужність): "/>
+        <TextView android:id="@+id/text_qp_tseh" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Qp (Реактивне навантаження): "/>
+        <TextView android:id="@+id/text_sp_tseh" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Sp (Повна потужність): "/>
+        <TextView android:id="@+id/text_ip_tseh" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Ip (Груповий струм): "/>
+
+    </LinearLayout>
+</ScrollView>
